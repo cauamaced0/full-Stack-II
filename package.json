@@ -1,0 +1,23 @@
+{
+  "name": "full-stack-ii",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cauamaced0/full-Stack-II.git"
+  },
+  "author": "caua_maced0",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cauamaced0/full-Stack-II/issues"
+  },
+  "homepage": "https://github.com/cauamaced0/full-Stack-II#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
