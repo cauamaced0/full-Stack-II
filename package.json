@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,6 +12,7 @@
   },
   "author": "caua_maced0",
   "license": "ISC",
+  "type":"module",
   "bugs": {
     "url": "https://github.com/cauamaced0/full-Stack-II/issues"
   },
