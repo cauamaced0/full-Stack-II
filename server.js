@@ -1,11 +1,11 @@
 import express from 'express'
-import usuarioRouter from './routes/usuarioRoutes.js'
+import usuarioRouter from './routes/usuarioRoute.js';
 const server = express();
-const port = 4200;
 
-server.use("/usuarios", usuarioRouter);
+server.use(express.json());
 
-server.listen(port, ()=>
-    {
-    console.log("======================= backend em funcionamento! ===============");
-    })
+server.use("/usuario", usuarioRouter);
+
+server.listen(5000, function() {
+    console.log("backend em funcionamento!");
+})

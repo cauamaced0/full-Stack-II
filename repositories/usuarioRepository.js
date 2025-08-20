@@ -1,20 +1,35 @@
-import Usuario from "../entities/usuarioEntity";
+import Usuario from "../entities/usuarioEntity.js";
 
-let Usuario = [];
+let usuarios = [];
 
-usuarios.push(new Usuario("Fulvio", "Emailqualquer12@gmail.com"));
-usuarios.push(new Usuario("Fulvia", "Emailqualquer312@gmail.com"));
-usuarios.push(new Usuario("Flaviu", "Emailqualquer453@gmail.com"));
+usuarios.push(new Usuario("Fulvio", "fulvio@unoeste.br"));
+usuarios.push(new Usuario("Fulano de Tal", "fulano@unoeste.br"));
+usuarios.push(new Usuario("Ciclano de Tal", "ciclano@unoeste.br"));
 
-export default class UsuarioRepository 
-{
-    listar()
-    {
+export default class UsuarioRepository {
+
+    buscarPorEmail(email) {
+        let usuario = usuarios.filter(x=> x.email == email);
+        //apenas verifica se existe
+        return usuario.length > 0;
+    }
+
+    listar() {
+        //faria o acesso ao banco
+        //mapeamento para a entidade
+        //devolução da lista de entidades
         return usuarios;
     }
 
-    cadastrar(usuarioEntidade)
-    {
-        
+    cadastrar(usuarioEntidade) {
+        //recebe uma entidade usuário para persistir
+        // com banco de dados, usariamos a entidade para montar o comando insert
+        usuarios.push(usuarioEntidade);
+        return true;
     }
+
+    deletar(email) {
+        usuarios = usuarios.filter(x=> x.email != email);
+    }
+
 }
