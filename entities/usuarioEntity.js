@@ -4,6 +4,11 @@ export default class Usuario {
 
     #nome;
     #email;
+    #id;
+
+    get id(){
+        return this.#id;
+    }
 
     get email() {
         return this.#email;
@@ -13,13 +18,15 @@ export default class Usuario {
         return this.#nome;
     }
 
-    constructor(nome, email) {
+    constructor(id, nome, email) {
+        this.#id = id;
         this.#email = email;
         this.#nome = nome;
     }
 
     toJSON() {
         return {
+            id:this.#id,
             nome: this.#nome,
             email: this.#email
         }

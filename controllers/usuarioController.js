@@ -24,7 +24,7 @@ export default class UsuarioController {
             let {nome, email} = req.body;
             if(nome && email) {
                 //nome e email são diferentes de undefined
-                let entidade = new Usuario(nome, email);
+                let entidade = new Usuario(Date.now() , nome, email);
                 let usuarioRepo = new UsuarioRepository();
                 let inseriu = usuarioRepo.cadastrar(entidade);
                 if(inseriu == true) {
@@ -49,11 +49,11 @@ export default class UsuarioController {
 
     deletar(req, res) {
         try{
-            let {email} = req.params;
+            let {id} = req.params;
             let usuarioRepo = new UsuarioRepository();
-            if(usuarioRepo.buscarPorEmail(email)) {
+            if(usuarioRepo.buscarPorId(id)) {
                 //o usuario para deleção existe;
-                usuarioRepo.deletar(email);
+                usuarioRepo.deletar(id);
                 return res.status(200).json({msg: "Usuário excluído com sucesso!"});
             }
             else {
@@ -68,7 +68,30 @@ export default class UsuarioController {
         }
     }
 
-    atualizar() {
+    atualizar(req, res){
+        try{
+            let {id,nome,email} = req.body;
 
+            if(id && nome && email){
+                let repositorio = new UsuarioRepository();
+                if(repositorio.buscarPorId(id)){
+                    let entidade = new Usuario(id, nome , email);
+                    repositorio.alterar(entidade);
+                    res.status(200).json({msg:"Usuario alterado!"});
+                }
+                else{
+                    res.status(404).json({msg:"usuario nao encontrado para a alteraçao"});
+                }
+            }
+            else{
+                res.status(404).json({msg:"Usuario nao existente!"});
+            }
+        }
+
+        catch(exception){
+            console.log(exception);
+            return res.status(500).json({msg:exception.message})
+        }
     }
+
 }
