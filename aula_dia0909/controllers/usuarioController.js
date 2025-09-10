@@ -1,5 +1,6 @@
 import Perfil from "../entities/perfil.js";
 import Usuario from "../entities/usuario.js";
+import ImovelRepository from "../repositories/imovelRepository.js";
 import UsuarioRepository from "../repositories/usuarioRepository.js";
 
 export default class UsuarioController {

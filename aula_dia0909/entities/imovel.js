@@ -1,6 +1,7 @@
+import Base from "./base.js";
 
 
-export default class Imovel {
+export default class Imovel extends Base {
 
     #id;
     #descricao;
@@ -81,6 +82,7 @@ export default class Imovel {
     }
 
     constructor(id, descricao, cep, endereco, bairro, cidade, valor, disponivel) {
+        super();
         this.#id = id;
         this.#descricao = descricao;
         this.#endereco = endereco;
@@ -90,4 +92,6 @@ export default class Imovel {
         this.#valor = valor;
         this.#disponivel = disponivel;
     }
+
+
 }

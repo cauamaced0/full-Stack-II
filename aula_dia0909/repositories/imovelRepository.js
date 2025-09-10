@@ -1,6 +1,6 @@
-import Database from "../db/database";
-import Imovel from "../entities/imovel";
-import Usuario from "../entities/usuario";
+import Database from "../db/database.js";
+import Imovel from "../entities/imovel.js";
+import Usuario from "../entities/usuario.js";
 
 
 export default class ImovelRepository {

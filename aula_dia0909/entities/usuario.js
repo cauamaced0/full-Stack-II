@@ -1,6 +1,7 @@
+import Base from "./base.js";
 
 
-export default class Usuario {
+export default class Usuario extends Base {
 
     #id;
     #nome;
@@ -60,21 +61,12 @@ export default class Usuario {
 
 
     constructor(id, nome, email, senha, ativo, perfil) {
+        super();     
         this.#id = id;
         this.#email = email;
         this.#nome = nome;
         this.#senha = senha;
         this.#ativo = ativo;
         this.#perfil = perfil;
-    }
-
-    toJSON() {
-        return {
-            id: this.#id,
-            nome: this.#nome,
-            email: this.#email,
-            ativo: this.#ativo,
-            perfil: this.#perfil
-        }
     }
 }
